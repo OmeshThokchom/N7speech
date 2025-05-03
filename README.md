@@ -26,8 +26,8 @@ pip install n7speech
 Or for local development:
 
 ```bash
-git clone https://github.com/yourusername/n7speech.git
-cd n7speech
+git clone https://github.com/yourusername/N7speech.git
+cd N7speech
 pip install .
 ```
 
