@@ -1,7 +1,25 @@
 # N7Speech
 
+<p align="center">
+  <img src="https://img.shields.io/badge/SOTA-Manipuri%20(Meiteilon)%20ASR-blueviolet?style=for-the-badge" alt="SOTA Manipuri ASR"/>
+</p>
+
+> **N7Speech is the State-of-the-Art (SOTA) Automatic Speech Recognition (ASR) model for Manipuri (Meiteilon).**  
+> It delivers highly accurate, real-time and file-based speech-to-text for Manipuri, supporting both Meitei Mayek and Latin phoneme outputs.
+
 **N7Speech** is a Python library for real-time and file-based speech recognition and Meitei Mayek phoneme conversion.  
 It supports both microphone and audio file (wav/mp3) input, and can output either Meitei Mayek or Latin phoneme representations.
+
+---
+
+## 🚀 Why N7Speech?
+
+- **State-of-the-Art (SOTA) performance** for Manipuri (Meiteilon) ASR
+- Fast, accurate, and robust for both real-time and file-based transcription
+- Supports both Meitei Mayek and Latin phoneme outputs
+- Easy to use, cross-platform, and GPU-accelerated
+
+---
 
 ## Author
 
@@ -76,24 +94,9 @@ result = speech_from_file("your_audio.wav", lang="mni-latin")
 print(result)
 ```
 
-- `lang="mni"` for Meitei Mayek output, `lang="mni-latin"` for phoneme output.## Platform Support
+- `lang="mni"` for Meitei Mayek output, `lang="mni-latin"` for phoneme output.
 
-## RequirementsN7Speech is cross-platform and works on **Linux**, **macOS**, and **Windows**.  
- for these operating systems.
-- Python 3.7+
-- onnxruntime **or** onnxruntime-gpu (for GPU acceleration, highly recommended for fast transcription; e.g., 20s wav in ~110ms)- For **macOS** and **Windows** users, make sure your Python environment and audio drivers are set up correctly for `sounddevice` and `torch`.
-- numpye).
-- librosa
-- torch- sounddevice
-
-## Model and Vocab
-
-Place your ONNX model as `model.onnx` and vocabulary as `vocab.txt` in the working directory.
-
-## License
-
-MIT License
-
+---
 
 ## Platform Support
 
@@ -102,4 +105,21 @@ All dependencies (onnxruntime, torch, numpy, librosa, sounddevice) are available
 
 - For **macOS** and **Windows** users, make sure your Python environment and audio drivers are set up correctly for `sounddevice` and `torch`.
 - For **GPU acceleration**, ensure you install the correct version of `onnxruntime-gpu` and have compatible CUDA drivers (on supported hardware).
+
+## Requirements
+
+- Python 3.7+
+- onnxruntime **or** onnxruntime-gpu (for GPU acceleration, highly recommended for fast transcription; e.g., 20s wav in ~110ms)
+- numpy
+- librosa
+- torch
+- sounddevice
+
+## Model and Vocab
+
+Place your ONNX model as `model.onnx` and vocabulary as `vocab.txt` in the working directory.
+
+## License
+
+MIT License
 
