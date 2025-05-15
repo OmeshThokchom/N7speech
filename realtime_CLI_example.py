@@ -1,4 +1,4 @@
-from manipur_asr.realtime_speech import RealTimeSpeech
+from manipur_asr.realtime_speech import N7RealTimeSpeech
 import time
 
 THRESHOLD = 10
@@ -33,4 +33,4 @@ def on_text_segment(text):
     history_words.extend(new_words)
 
 if __name__ == "__main__":
-    RealTimeSpeech(lang="mni").start(on_text_segment)
+    N7RealTimeSpeech(lang="mni").start(on_text_segment)

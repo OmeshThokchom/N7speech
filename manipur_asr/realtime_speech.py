@@ -23,21 +23,21 @@ def speech_from_file(audio_path, lang="mni"):
         transcript = meitei_lon(transcript)
     return transcript
 
-class RealTimeSpeech:
+class N7RealTimeSpeech:
     """Real-time microphone speech recognizer."""
     def __init__(self, lang="mni"):
-        # Set up audio and VAD parameters
+        # Set up audio and VAD parameters with optimized values
         self.sample_rate = 16000
-        self.chunk_duration = 0.25
+        self.chunk_duration = 0.1  # Reduced for faster response
         self.chunk_size = int(self.sample_rate * self.chunk_duration)
-        self.window_duration = 1.0
+        self.window_duration = 0.5  # Reduced window size for faster processing
         self.window_size = int(self.sample_rate * self.window_duration)
         self.audio_buffer = np.zeros(self.window_size, dtype=np.float32)
         self.buffer_filled = 0
-        self.audio_q = Queue()
+        self.audio_q = Queue(maxsize=100)  # Limit queue size
         self.lang = lang
         self.recognizer = N7SpeechRecognizer()
-        torch.set_num_threads(1)
+        torch.set_num_threads(2)  # Increased threads for VAD
         # Load Silero VAD model and utilities
         self.model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                                            model='silero_vad',
@@ -88,8 +88,8 @@ class RealTimeSpeech:
                     audio_tensor,
                     self.model,
                     sampling_rate=self.sample_rate,
-                    threshold=0.5,
-                    min_speech_duration_ms=150
+                    threshold=0.3,  # Lower threshold for more sensitive detection
+                    min_speech_duration_ms=100  # Shorter minimum duration
                 )
                 is_speaking = bool(speech_segments)
 

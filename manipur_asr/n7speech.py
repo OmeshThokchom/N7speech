@@ -1,7 +1,6 @@
 import os
 import warnings
-# Suppress ONNXRuntime and CUDA warnings before importing onnxruntime
-os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Prevent CUDA provider warning
+# Suppress ONNXRuntime warnings
 os.environ["ORT_DISABLE_EXTERNAL_WARNINGS"] = "1"
 warnings.filterwarnings("ignore", category=UserWarning)
 

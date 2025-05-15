@@ -14,7 +14,7 @@ setup(
     install_requires=[
         # Default to CPU version; GPU users should manually install onnxruntime-gpu
         "onnxruntime==1.17.0",
-        "numpy",
+        "numpy==1.24.4",
         "librosa",
         "torch",
         "sounddevice"
